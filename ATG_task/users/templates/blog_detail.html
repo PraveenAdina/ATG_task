@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+    <h2>{{ blog.title }}</h2>
+    <p><strong>Category:</strong> {{ blog.category }}</p>
+    <p><small class="text-muted">Posted on {{ blog.created_at|date:"M d, Y" }}</small></p>
+    
+    {% if blog.image %}
+        <img src="{{ blog.image.url }}" class="img-fluid mb-3" alt="{{ blog.title }}">
+    {% endif %}
+
+    <h5>Summary</h5>
+    <p>{{ blog.summary }}</p>
+
+    <h5>Content</h5>
+    <p>{{ blog.content|linebreaks }}</p>
+
+    <a href="{% url 'patient_dashboard' %}" class="btn btn-secondary mt-3">Back to Dashboard</a>
+</div>
+{% endblock %}

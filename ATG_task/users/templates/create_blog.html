@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Create New Blog Post</h2>
+<form method="post" enctype="multipart/form-data" novalidate>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-success">Publish</button>
+    <a href="{% url 'doctor_dashboard' %}" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock %}
